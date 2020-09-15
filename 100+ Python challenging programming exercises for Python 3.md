@@ -448,21 +448,17 @@ In case of input data being supplied to the question, it should be assumed to be
 Solution:
 
 ```python
-netAmount = 0
-while True:
-    s = input()
-    if not s:
-        break
-    values = s.split(" ")
-    operation = values[0]
-    amount = int(values[1])
-    if operation=="D":
-        netAmount+=amount
-    elif operation=="W":
-        netAmount-=amount
+result = 0
+ip_ls = [c for c in input("Enter the transaction log: ").split(" ")]
+
+for i in range(0, len(ip_ls)):
+    if ip_ls[i] == "D":
+        result +=int(ip_ls[i+1])
+    elif ip_ls[i] == "W":
+        result -=int(ip_ls[i+1])
     else:
         pass
-print(netAmount)
+print(result)
 ```
 
 ### Question 18
